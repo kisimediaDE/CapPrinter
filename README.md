@@ -19,16 +19,12 @@ npx cap sync
 
 ## API
 
-<docgen-index>
-
 - [Installation](#installation)
 - [API](#api)
   - [print(...)](#print)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-
-</docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
