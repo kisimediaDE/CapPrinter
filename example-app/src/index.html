@@ -1,26 +1,28 @@
-<!doctype html>
-<html lang="en" dir="ltr" class="hydrated">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Example Capacitor App</title>
-    <meta
-      name="viewport"
-      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="format-detection" content="telephone=no" />
+    <title>CapPrinter Example App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
+    <header>
+      <h1>CapPrinter Example</h1>
+    </header>
     <main>
-      <h1>Capacitor Test Plugin Project</h1>
-      <p>
-        This project can be used to test out the functionality of your plugin. Nothing in the
-        <em>example-app/</em> folder will be published to npm when using this template, so you can create away!
-      </p>
-      <label for="echoInput">Echo Text:</label>
-      <input type="text" id="echoInput" name="echoInput" value="Hello World!" />
-      <button onclick="testEcho()">Click Me!</button>
-    </main>
+      <div class="container">
+        <label for="pdfUrl">Enter PDF URL:</label>
+        <input type="text" id="pdfUrl" placeholder="https://example.com/mydoc.pdf" />
 
-    <script src="./js/example.js" type="module"></script>
+        <label for="localPath">Or enter local file path:</label>
+        <input type="text" id="localPath" placeholder="/path/to/local.pdf" />
+
+        <button id="printButton">Print PDF</button>
+      </div>
+
+      <div id="status"></div>
+    </main>
+    <script type="module" src="./js/example.js"></script>
   </body>
 </html>
