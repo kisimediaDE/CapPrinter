@@ -39,7 +39,7 @@ print(options: { url?: string; localPath?: string; }) => Promise<void>
 | ------------- | -------------------------------------------------- |
 | **`options`** | <code>{ url?: string; localPath?: string; }</code> |
 
----
+--------------------
 
 </docgen-api>
 
