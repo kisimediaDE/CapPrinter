@@ -22,6 +22,9 @@ npx cap sync
 - [Installation](#installation)
 - [API](#api)
   - [print(...)](#print)
+  - [Interfaces](#interfaces)
+    - [PrintRequest](#printrequest)
+    - [PrintOptions](#printoptions)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -29,11 +32,17 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
+Plugin interface for CapPrinter.
+
 ### print(...)
 
 ```typescript
 print(options: PrintRequest) => Promise<void>
 ```
+
+Print a PDF document from a remote URL or local file path.
+
+Either `url` or `localPath` must be provided.
 
 | Param         | Type                                                  |
 | ------------- | ----------------------------------------------------- |
@@ -47,20 +56,24 @@ print(options: PrintRequest) => Promise<void>
 
 #### PrintRequest
 
-| Prop            | Type                                                  |
-| --------------- | ----------------------------------------------------- |
-| **`url`**       | <code>string</code>                                   |
-| **`localPath`** | <code>string</code>                                   |
-| **`options`**   | <code><a href="#printoptions">PrintOptions</a></code> |
+Parameters for a print request.
+
+| Prop            | Type                                                  | Description                                                       |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------- |
+| **`url`**       | <code>string</code>                                   | Remote PDF file URL. Optional if `localPath` is provided.         |
+| **`localPath`** | <code>string</code>                                   | Local file path to a PDF document. Optional if `url` is provided. |
+| **`options`**   | <code><a href="#printoptions">PrintOptions</a></code> | Optional native print configuration.                              |
 
 
 #### PrintOptions
 
-| Prop              | Type                                             | Description                                  |
-| ----------------- | ------------------------------------------------ | -------------------------------------------- |
-| **`outputType`**  | <code>'general' \| 'photo' \| 'grayscale'</code> | Output type: general, photo, or grayscale.   |
-| **`orientation`** | <code>'portrait' \| 'landscape'</code>           | Page orientation: portrait or landscape.     |
-| **`duplex`**      | <code>boolean</code>                             | Duplex printing if supported by the printer. |
+Optional print configuration for native print dialogs.
+
+| Prop              | Type                                             | Description                                                                                                                                                      |
+| ----------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`outputType`**  | <code>'general' \| 'photo' \| 'grayscale'</code> | Defines the output quality or color mode. - `general`: Default system quality - `photo`: High-quality color/photo print - `grayscale`: Black & white / grayscale |
+| **`orientation`** | <code>'portrait' \| 'landscape'</code>           | Sets the page orientation. - `portrait`: Standard vertical layout - `landscape`: Horizontal layout                                                               |
+| **`duplex`**      | <code>boolean</code>                             | Enables duplex printing if the printer supports it.                                                                                                              |
 
 </docgen-api>
 
@@ -73,11 +86,17 @@ import { CapPrinter } from 'cap-printer';
 
 async function printPDF() {
   try {
-    // To print a remote PDF:
-    await CapPrinter.print({ url: 'https://example.com/your.pdf' });
+    await CapPrinter.print({
+      url: 'https://example.com/your.pdf',
+      options: {
+        outputType: 'photo',
+        orientation: 'landscape',
+        duplex: true,
+      },
+    });
 
-    // Or to print a local file:
-    // await CapPrinter.print({ localPath: '/path/to/your/file.pdf' });
+    // For local files
+    // await CapPrinter.print({ localPath: '/path/to/file.pdf' });
 
     console.log('Print process started successfully.');
   } catch (error) {
