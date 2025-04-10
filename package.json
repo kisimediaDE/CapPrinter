@@ -1,6 +1,6 @@
 {
   "name": "cap-printer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Capacitor plugin for printing pdf documents local and remote",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

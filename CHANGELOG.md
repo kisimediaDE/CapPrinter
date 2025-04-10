@@ -1,8 +1,20 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
+All notable changes to this project are documented in this file.  
 This project adheres to [Semantic Versioning](https://semver.org/).
+
+---
+
+## [1.1.0] – 2025-04-10
+
+### Added
+
+- Support for `orientation`, `duplex`, and `outputType` in iOS and Android native print functionality
+
+### Changed
+
+- Refactored native and TypeScript code for consistent option handling
+- Improved developer experience and typings
 
 ---
 
@@ -10,13 +22,14 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Added `CHANGELOG.md` to track all changes 🚀
+- `CHANGELOG.md` introduced to track version history 🚀
 
 ### Changed
 
-- Updated `eslint` from `8.57.0` → `8.57.1`
-- Updated `typescript` from `4.1.5` → `5.8.3`
-- Synced latest plugin version into `example-app`
+- Updated dependencies:
+  - `eslint`: 8.57.0 → 8.57.1
+  - `typescript`: 4.1.5 → 5.8.3
+- Synced plugin version in `example-app`
 
 ---
 
@@ -25,17 +38,17 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Initial release 🎉
-- Print PDFs from external URLs
-- Example app for testing
+- Support for printing remote PDF files via URL
+- Basic example app for testing
 
 ---
 
 ## Legend
 
-- **Added** – new features
-- **Changed** – updates to existing functionality
-- **Fixed** – bug fixes
-- **Removed** – deprecated/removed features
+- **Added** – New features
+- **Changed** – Updates to existing functionality
+- **Fixed** – Bug fixes
+- **Removed** – Deprecated or removed features
 
 ---
 
