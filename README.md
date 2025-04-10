@@ -32,14 +32,35 @@ npx cap sync
 ### print(...)
 
 ```typescript
-print(options: { url?: string; localPath?: string; }) => Promise<void>
+print(options: PrintRequest) => Promise<void>
 ```
 
-| Param         | Type                                               |
-| ------------- | -------------------------------------------------- |
-| **`options`** | <code>{ url?: string; localPath?: string; }</code> |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#printrequest">PrintRequest</a></code> |
 
 --------------------
+
+
+### Interfaces
+
+
+#### PrintRequest
+
+| Prop            | Type                                                  |
+| --------------- | ----------------------------------------------------- |
+| **`url`**       | <code>string</code>                                   |
+| **`localPath`** | <code>string</code>                                   |
+| **`options`**   | <code><a href="#printoptions">PrintOptions</a></code> |
+
+
+#### PrintOptions
+
+| Prop              | Type                                             | Description                                  |
+| ----------------- | ------------------------------------------------ | -------------------------------------------- |
+| **`outputType`**  | <code>'general' \| 'photo' \| 'grayscale'</code> | Output type: general, photo, or grayscale.   |
+| **`orientation`** | <code>'portrait' \| 'landscape'</code>           | Page orientation: portrait or landscape.     |
+| **`duplex`**      | <code>boolean</code>                             | Duplex printing if supported by the printer. |
 
 </docgen-api>
 

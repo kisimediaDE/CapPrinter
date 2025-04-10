@@ -1,5 +1,4 @@
 import { registerPlugin } from '@capacitor/core';
-
 import type { CapPrinterPlugin } from './definitions';
 
 const CapPrinter = registerPlugin<CapPrinterPlugin>('CapPrinter', {

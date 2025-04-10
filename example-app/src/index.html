@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>CapPrinter Example App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>CapPrinter Example</h1>
-    </header>
-    <main>
-      <div class="container">
-        <label for="pdfUrl">Enter PDF URL:</label>
-        <input type="text" id="pdfUrl" placeholder="https://example.com/mydoc.pdf" />
 
-        <label for="localPath">Or enter local file path:</label>
-        <input type="text" id="localPath" placeholder="/path/to/local.pdf" />
+<head>
+  <meta charset="UTF-8" />
+  <title>CapPrinter Example App</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
 
-        <button id="printButton">Print PDF</button>
-      </div>
+<body>
+  <header>
+    <h1>CapPrinter Example</h1>
+  </header>
+  <main>
+    <div class="container">
+      <label for="pdfUrl">Enter PDF URL:</label>
+      <input type="text" id="pdfUrl" placeholder="https://example.com/mydoc.pdf" />
 
-      <div id="status"></div>
-    </main>
-    <script type="module" src="./js/example.js"></script>
-  </body>
+      <label for="localPath">Or enter local file path:</label>
+      <input type="text" id="localPath" placeholder="/path/to/local.pdf" />
+
+      <label for="outputType">Output Type:</label>
+      <select id="outputType">
+        <option value="general">General</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="photo">Photo</option>
+      </select>
+
+      <label for="orientation">Orientation:</label>
+      <select id="orientation">
+        <option value="portrait">Portrait</option>
+        <option value="landscape">Landscape</option>
+      </select>
+
+      <label>
+        <input type="checkbox" id="duplex" />
+        Enable duplex printing
+      </label>
+
+      <button id="printButton">Print PDF</button>
+    </div>
+
+    <div id="status"></div>
+  </main>
+  <script type="module" src="./js/example.js"></script>
+</body>
+
 </html>

@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2025-04-10
+
+### Added
+
+- Support for `orientation`, `duplex` and `outputType` in iOS and Android native print functionality
+
+### Fixed
+
+- Internal refactoring and cleanup for consistent option handling
+
+---
+
 ## [1.0.1] – 2025-04-10
 
 ### Added
