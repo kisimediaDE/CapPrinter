@@ -19,6 +19,16 @@ printButton.addEventListener('click', async () => {
     return;
   }
 
+
+  const { available } = await CapPrinter.isAvailable();
+
+  if (!available) {
+    console.warn('CapPrinter is not available on this platform.');
+    statusDiv.textContent = 'CapPrinter is not available on this platform.';
+    statusDiv.style.color = 'orange';
+    return;
+  }
+
   try {
     await CapPrinter.print({
       url,

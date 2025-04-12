@@ -5,16 +5,31 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] – 2025-04-11
+
+### Added
+
+- New `isAvailable()` method to check for plugin support on the current platform
+
+### Changed
+
+- Enhanced `README.md` with emoji headers and usage improvements
+- Updated example app with isAvailable()
+
+---
+
 ## [1.1.0] – 2025-04-10
 
 ### Added
 
 - Support for `orientation`, `duplex`, and `outputType` in iOS and Android native print functionality
+- Options UI in the example app (orientation, duplex, outputType)
 
 ### Changed
 
 - Refactored native and TypeScript code for consistent option handling
 - Improved developer experience and typings
+- Updated example app layout to support iPhone notch and improve UX
 
 ---
 

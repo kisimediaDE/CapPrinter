@@ -10,24 +10,29 @@ Capacitor plugin for printing PDF documents - both local and remote.
 
 </p>
 
-## Installation
+## 📦 Installation
 
 ```bash
 npm install cap-printer
 npx cap sync
 ```
 
-## API
+## 🔌 API
 
-- [Installation](#installation)
-- [API](#api)
+- [📦 Installation](#-installation)
+- [🔌 API](#-api)
   - [print(...)](#print)
+  - [isAvailable()](#isavailable)
   - [Interfaces](#interfaces)
     - [PrintRequest](#printrequest)
     - [PrintOptions](#printoptions)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [🧪 Usage](#-usage)
+  - [Basic usage](#basic-usage)
+  - [For local files](#for-local-files)
+  - [Plugin availability check (recommended for Web support)](#plugin-availability-check-recommended-for-web-support)
+- [📝 Changelog](#-changelog)
+- [🤝 Contributing](#-contributing)
+- [🪪 License](#-license)
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
@@ -48,11 +53,21 @@ Either `url` or `localPath` must be provided.
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#printrequest">PrintRequest</a></code> |
 
---------------------
+---
 
+### isAvailable()
+
+```typescript
+isAvailable() => Promise<{ available: boolean; }>
+```
+
+Returns whether the plugin is available on the current platform.
+
+**Returns:** <code>Promise&lt;{ available: boolean; }&gt;</code>
+
+---
 
 ### Interfaces
-
 
 #### PrintRequest
 
@@ -63,7 +78,6 @@ Parameters for a print request.
 | **`url`**       | <code>string</code>                                   | Remote PDF file URL. Optional if `localPath` is provided.         |
 | **`localPath`** | <code>string</code>                                   | Local file path to a PDF document. Optional if `url` is provided. |
 | **`options`**   | <code><a href="#printoptions">PrintOptions</a></code> | Optional native print configuration.                              |
-
 
 #### PrintOptions
 
@@ -77,38 +91,59 @@ Optional print configuration for native print dialogs.
 
 </docgen-api>
 
-## Usage
+## 🧪 Usage
 
-In your JavaScript/TypeScript code, you can use the plugin as follows:
+### Basic usage
 
 ```typescript
 import { CapPrinter } from 'cap-printer';
 
-async function printPDF() {
-  try {
-    await CapPrinter.print({
-      url: 'https://example.com/your.pdf',
-      options: {
-        outputType: 'photo',
-        orientation: 'landscape',
-        duplex: true,
-      },
-    });
-
-    // For local files
-    // await CapPrinter.print({ localPath: '/path/to/file.pdf' });
-
-    console.log('Print process started successfully.');
-  } catch (error) {
-    console.error('Print process failed:', error);
-  }
-}
+await CapPrinter.print({
+  url: 'https://example.com/your.pdf',
+  options: {
+    outputType: 'photo',
+    orientation: 'landscape',
+    duplex: true,
+  },
+});
 ```
 
-## Contributing
+### For local files
 
-Contributions are welcome!
+```typescript
+import { CapPrinter } from 'cap-printer';
 
-## License
+await CapPrinter.print({
+  localPath: '/path/to/your/file.pdf',
+});
+```
+
+### Plugin availability check (recommended for Web support)
+
+```typescript
+import { CapPrinter } from 'cap-printer';
+
+const { available } = await CapPrinter.isAvailable();
+
+if (!available) {
+  console.warn('CapPrinter is not available on this platform.');
+  return;
+}
+
+await CapPrinter.print({ url: 'https://example.com/your.pdf' });
+```
+
+> ℹ️ On Web, `isAvailable()` always returns `false`.
+
+## 📝 Changelog
+
+For a detailed list of changes and version history, check out the [CHANGELOG.md](./CHANGELOG.md).
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+If you'd like to improve the plugin, report an issue, or suggest a feature, feel free to [open a pull request](https://github.com/kisimediaDE/CapPrinter/pulls) or [create an issue](https://github.com/kisimediaDE/CapPrinter/issues).
+
+## 🪪 License
 
 This plugin is licensed under the MIT License.

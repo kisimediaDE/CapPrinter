@@ -5,4 +5,8 @@ export class CapPrinterWeb extends WebPlugin implements CapPrinterPlugin {
   async print(_options: PrintRequest): Promise<void> {
     console.warn('[CapPrinter] PDF printing is only supported on native platforms.');
   }
+
+  async isAvailable(): Promise<{ available: boolean }> {
+    return { available: false }; // Always false for web
+  }
 }

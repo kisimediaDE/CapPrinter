@@ -8,6 +8,11 @@ export interface CapPrinterPlugin {
    * Either `url` or `localPath` must be provided.
    */
   print(options: PrintRequest): Promise<void>;
+
+  /**
+   * Returns whether the plugin is available on the current platform.
+   */
+  isAvailable(): Promise<{ available: boolean }>;
 }
 
 /**

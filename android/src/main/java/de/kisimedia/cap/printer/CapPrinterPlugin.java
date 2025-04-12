@@ -56,6 +56,13 @@ public class CapPrinterPlugin extends com.getcapacitor.Plugin {
         }
     }
 
+    @PluginMethod
+    public void isAvailable(PluginCall call) {
+        JSObject ret = new JSObject();
+        ret.put("available", true);
+        call.resolve(ret);
+    }
+
     private void printPDF(File file, PrintAttributes.Builder builder, PluginCall call) {
         PrintManager printManager = (PrintManager) getContext().getSystemService(Context.PRINT_SERVICE);
         if (printManager == null) {

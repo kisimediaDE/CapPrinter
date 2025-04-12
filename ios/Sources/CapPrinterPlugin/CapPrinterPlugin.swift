@@ -6,7 +6,8 @@ public class CapPrinterPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "CapPrinterPlugin"
     public let jsName = "CapPrinter"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "print", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "print", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "isAvailable", returnType: CAPPluginReturnPromise)
     ]
     
     @objc func print(_ call: CAPPluginCall) {
@@ -83,5 +84,9 @@ public class CapPrinterPlugin: CAPPlugin, CAPBridgedPlugin {
             startPrintJob(with: data, jobName: url.lastPathComponent)
         }
         task.resume()
+    }
+
+    @objc func isAvailable(_ call: CAPPluginCall) {
+        call.resolve(["available": true])
     }
 }
